@@ -1,8 +1,3 @@
-
-
-
-
-
 var h = document.getElementById("header");
 var readout = document.getElementById("readout");
 var stuck = false;
@@ -13,21 +8,22 @@ function getDistance() {
   return topDist;
 }
 
-window.onscroll = function(e) {
+window.onscroll = function (e) {
   var distance = getDistance() - window.pageYOffset;
   var offset = window.pageYOffset;
-  readout.innerHTML = stickPoint + '   ' + distance + '   ' + offset + '   ' + stuck;
-  if ( (distance <= 0) && !stuck) {
-    h.style.position = 'fixed';
-    h.style.top = '0px';
+  readout.innerHTML =
+    stickPoint + "   " + distance + "   " + offset + "   " + stuck;
+  if (distance <= 0 && !stuck) {
+    h.style.position = "fixed";
+    h.style.top = "0px";
     $(".sticky").addClass("colorbg");
     stuck = true;
-  } else if (stuck && (offset <= stickPoint)){
-    h.style.position = 'static';
+  } else if (stuck && offset <= stickPoint) {
+    h.style.position = "static";
     $(".sticky").removeClass("colorbg");
     stuck = false;
   }
-}
+};
 // $(document).ready(function() {
 //
 //   // Whenever the window is scrolled ...
